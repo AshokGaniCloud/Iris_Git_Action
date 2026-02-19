@@ -12,7 +12,10 @@ jobs:
   Run:
     runs-on: ubuntu-latest
     environment: production
-    permissions: write-all
+    permissions: 
+       id-token: write
+       contents: write
+  
 
     steps:
       - name: Iterative Setup
@@ -28,8 +31,8 @@ jobs:
           Git_Token: ${{secrets.GIT_TOKEN}}
         run: |
           pip install -r requirements.txt
-          python3 train_model.py
-          python3 test.py
+          python train_model.py
+          python test.py
 
           echo "# Sanity Checks" > report2.md
           cat test.txt >> report2.md
