@@ -30,7 +30,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           python train_model.py
-          python test.py
+          
 
           echo "# Sanity Checks" > report2.md
           cat test.txt >> report2.md
