@@ -22,13 +22,10 @@ jobs:
         uses: iterative/setup-cml@v1
       - name: Checkout Self
         uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
+  
       - name: Pip Packages
         env:
-          Git_Token: ${{secrets.GIT_TOKEN}}
+            REPO_TOKEN: ${{ secrets.GIT_TOKEN}}
         run: |
           pip install -r requirements.txt
           python train_model.py
